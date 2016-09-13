@@ -1,0 +1,12 @@
+**/bin/
+**/obj/
+*.suo
+**/packages/
+packages/
+*.user
+build/build.txt
+*.zip
+TestResults/
+Binaries/
+*.Cache
+/.vs/**
