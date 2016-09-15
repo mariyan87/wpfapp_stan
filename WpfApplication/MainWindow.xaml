@@ -5,9 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
+        Title="People List" Height="350" Width="595"
         Loaded="OnLoaded">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="*" />
+            <ColumnDefinition  Width="100" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBox x:Name="tbSearchByName" Grid.Column="0" Grid.Row="0" Height="23" Margin="10,10,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" TextChanged="tbSearchByName_TextChanged"/>
+        <Button x:Name="btnSearch" Grid.Column="1" Grid.Row="0" Content="Filter" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="75" Click="btnSearch_Click" IsEnabled="False" Margin="0,10,10,0"/>
+        <ScrollViewer Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ListView x:Name="lvPeople">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="60" />
+                        <GridViewColumn Header="First name" DisplayMemberBinding="{Binding GivenName}" Width="160" />
+                        <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Surname}"  Width="160"/>
+                        <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}" Width="60" />
+                        <GridViewColumn Header="Height" DisplayMemberBinding="{Binding Meters, StringFormat='{}0.00m'}"  Width="90"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
     </Grid>
 </Window>

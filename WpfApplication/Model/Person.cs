@@ -21,6 +21,10 @@ namespace WpfApplication.Model
         public double Kilograms { get; set; }
 
         public double Centimeters { get; set; }
+        public double Meters
+        {
+            get { return Centimeters / 100; }
+        }
 
     }
 }
