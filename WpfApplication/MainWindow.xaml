@@ -16,10 +16,10 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBox x:Name="tbSearchByName" Grid.Column="0" Grid.Row="0" Height="23" Margin="10,10,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" TextChanged="tbSearchByName_TextChanged"/>
-        <Button x:Name="btnSearch" Grid.Column="1" Grid.Row="0" Content="Filter" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="75" Click="btnSearch_Click" IsEnabled="False" Margin="0,10,10,0"/>
+        <TextBox x:Name="tbSearchByName" Grid.Column="0" Grid.Row="0" Height="23" Margin="10,10,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}" />
+        <Button x:Name="btnSearch" Grid.Column="1" Grid.Row="0" Content="Filter" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="75" Command="{Binding FilterPeopleCmd}"  Margin="0,10,10,0"/>
         <ScrollViewer Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <ListView x:Name="lvPeople">
+            <ListView x:Name="lvPeople" ItemsSource="{Binding FilteredPeople}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="60" />
